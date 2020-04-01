@@ -1,9 +1,9 @@
-
-class SnackGame {
-  constructor(dom = 'bigBorder') {
-    this.mapDom = document.getElementById(dom);
+import Food from './food'
+import Snack from './snack'
+export class SnackGame {
+  constructor() {
     this.setup()
-    this.loop()
+    // this.loop()
   }
   setup() {
     this.is = {
@@ -17,8 +17,8 @@ class SnackGame {
     }
     // this.keyOn = new KeyOn()
     this.config = {
-      w: this.mapDom.clientWidth || 400,
-      h: this.mapDom.clientHeight || 400,
+      w: '',
+      h: '',
       speed: 1000/10, //
       speedPuaue: 30000, // 暂停的循环速度
       loopId: -5,

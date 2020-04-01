@@ -1,14 +1,16 @@
-const { log } = console
+// import SnackGame from "./actions/snackGame.js";
+import SnackGame from './snackGame.js'
 
-const Between = function(min, max) {
+export const { log } = console
+
+export const Between = function(min, max) {
   let t = Math.floor(Math.random() * (max + 1 - min)) + min;
   return t
 }
 
-const __main = function () {
+export const __main = function () {
   const game = new SnackGame()
-
+  return game
 }
 
-__main()
 

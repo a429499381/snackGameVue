@@ -1,4 +1,4 @@
-class Snack {
+export class Snack {
   constructor(map, num = 4) {
     this.setup(map)
     this.addSnack(num)
