@@ -1,13 +1,14 @@
 <template>
-  <div id='body'>
+  <div id="body">
     <div id="snack" v-for="(obj, index) in snackArr" :key="index">
-          <div class='snack'  v-bind:style='{left: obj.x, top: obj.y}'>{{index}}</div>
+      <div :num="index" class="snack" v-bind:style="{left: obj.x, top: obj.y}">{{index}}</div>
     </div>
     <div id="foodArr" v-for="(obj, index) in foodArr" :key="index">
-          <div class="food"  v-bind:style='{left: obj.x, top: obj.y}'>{{index}}</div>
+      <div class="food" v-bind:style="{left: obj.x, top: obj.y}">{{index}}</div>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -17,10 +18,14 @@ export default {
   },
   data() {
     return {
-      snackArr: [1,2,3,4,5],
-      foodArr: [1,2,4,5,6],
+      snackArr: [1, 2, 3, 4, 5],
+      foodArr: [1, 2, 4, 5, 6]
     };
-  }
+    
+  },
+  create: function() {
+
+    },
 };
 </script>
 
@@ -31,8 +36,7 @@ export default {
   width: 20px;
   height: 20px;
 }
-#snack, .snack {
-
+.snack {
   background-color: rgb(228, 60, 60);
 }
 .food {

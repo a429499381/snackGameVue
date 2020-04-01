@@ -1,5 +1,5 @@
 <template>
-  <div id="game">
+  <div id="App">
       <games>
       </games>
   </div>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-#game {
+#App {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
