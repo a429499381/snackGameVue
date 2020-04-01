@@ -1,7 +1,8 @@
-import Food from './food'
-import Snack from './snack'
+import {Food} from './food'
+// import Snack from './snack'
 export class SnackGame {
-  constructor() {
+  constructor(el) {
+    this.el = el
     this.setup()
     // this.loop()
   }
@@ -27,45 +28,45 @@ export class SnackGame {
     this.foodArr = []
 
     
-    this.food = new Food(this)
-    this.snack = new Snack(this)
+    this.food = new Food()
+    // this.snack = new Snack(this)
   }
 
-  update() {
+  // update() {
 
-    this.ele.forEach((obj) => {
-      if (obj && typeof obj === 'object') {
-        obj.update()  
-      }
-    })
+  //   this.ele.forEach((obj) => {
+  //     if (obj && typeof obj === 'object') {
+  //       obj.update()  
+  //     }
+  //   })
 
-  }
-  draw() {
-    let mapHtml = ''
-    this.ele.forEach((obj) => {
-      if (obj && typeof obj === 'object') {
-        obj.draw()
-        mapHtml += obj.html
-      }
-    })
-    // 一次写入所有html
-    this.mapDom.innerHTML = mapHtml
-  }
+  // }
+  // draw() {
+  //   let mapHtml = ''
+  //   this.ele.forEach((obj) => {
+  //     if (obj && typeof obj === 'object') {
+  //       obj.draw()
+  //       mapHtml += obj.html
+  //     }
+  //   })
+  //   // 一次写入所有html
+  //   this.mapDom.innerHTML = mapHtml
+  // }
 
 
-  loop() {
-    if(this.loopId ) {
-      return false
-    }
-  this.loopId = setInterval(() => {
-      if(this.isPause){
-        this.config.speed = this.config.speedPuaue // 毫秒 30秒
-        return false
-      }
-      this.update()
-      this.draw()
-    }, this.config.speed);
-  }
+  // loop() {
+  //   if(this.loopId ) {
+  //     return false
+  //   }
+  // this.loopId = setInterval(() => {
+  //     if(this.isPause){
+  //       this.config.speed = this.config.speedPuaue // 毫秒 30秒
+  //       return false
+  //     }
+  //     this.update()
+  //     this.draw()
+  //   }, this.config.speed);
+  // }
 
 }
 

@@ -6,14 +6,14 @@
     <div id="foodArr" v-for="(obj, index) in foodArr" :key="index">
       <div class="food" v-bind:style="{left: obj.x, top: obj.y}">{{index}}</div>
     </div>
-    <div>{{game.add(4)}}</div>
+    <div>{{game.food}}</div>
   </div>
 </template>
 
 <script>
-// import __main from '../actions/main.js';
-// import SnackGame from '../actions/snackGame';
-import {Game} from '../actions/cs';
+// import {__main} from '../actions/main.js';
+import {SnackGame} from '../actions/snackGame';
+// import {Game} from '../actions/cs';
 export default {
   name: "games",
   props: {
@@ -27,8 +27,8 @@ export default {
     };
   },
   mounted: function() {
-      // this.game =  __main()
-      this.game = new Game("xutao")
+      this.game = new SnackGame('xutao')
+  
       console.log('this.game', this.$el)
       console.log('this.game', this.game)
   },

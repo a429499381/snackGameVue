@@ -8,8 +8,8 @@ export const Between = function(min, max) {
   return t
 }
 
-export const __main = function () {
-  const game = new SnackGame()
+export const __main = function (num) {
+  const game = new SnackGame(num)
   return game
 }
 
