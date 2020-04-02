@@ -1,6 +1,6 @@
 <template>
   <div id="App">
-      <games>
+      <games :gameHeight = this.el>
       </games>
   </div>
 </template>
@@ -12,7 +12,16 @@ export default {
   name: 'App',
   components: {
     games,
-  }
+  },
+  data() {
+    return {
+      el: 0,
+    }
+  },
+  mounted() {
+    this.el = this.$el.clientHeight
+    console.log('el', this.el.clientHeight)
+  },
 }
 </script>
 
