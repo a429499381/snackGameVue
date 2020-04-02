@@ -1,12 +1,12 @@
 <template>
   <div id="body">
     <div id="snack" v-for="(obj, index) in snackArr" :key="index">
-      <div :num="index" class="snack" v-bind:style="{left: obj.x, top: obj.y}">{{index}}</div>
+      <div :num="index" class="snack" v-bind:style="{left: obj.x * num + 'px', top: obj.y  * num + 'px'}">{{index}}</div>
     </div>
     <div id="foodArr" v-for="(obj, index) in foodArr" :key="index">
-      <div class="food" v-bind:style="{left: obj.x, top: obj.y}">{{index}}</div>
+      <div class="food" v-bind:style="{left: obj.x * num + 'px', top: obj.y * num + 'px'}">{{index}}</div>
     </div>
-    <div>{{game.food}}</div>
+    <!-- <div>{{game.food}}</div> -->
   </div>
 </template>
 
@@ -23,11 +23,13 @@ export default {
     return {
       snackArr: [1],
       foodArr: [],
-      game: '',
+      num: 20,
     };
   },
   mounted: function() {
       this.game = new SnackGame('xutao')
+      this.foodArr = this.game.food.foodArr
+      this.snackArr = this.game.snack.snackArr
   
       console.log('this.game', this.$el)
       console.log('this.game', this.game)
@@ -35,7 +37,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+// <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #body {
   position: relative;

@@ -1,5 +1,5 @@
 import {Food} from './food'
-// import Snack from './snack'
+import {Snack} from './snack'
 export class SnackGame {
   constructor(el) {
     this.el = el
@@ -29,7 +29,7 @@ export class SnackGame {
 
     
     this.food = new Food()
-    // this.snack = new Snack(this)
+    this.snack = new Snack()
   }
 
   // update() {
