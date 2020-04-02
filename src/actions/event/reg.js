@@ -1,4 +1,5 @@
-class On {
+// eslint-disable-next-line no-unused-vars
+class Reg {
     constructor() {
         this.actions = {}
         this.keydowns = {}

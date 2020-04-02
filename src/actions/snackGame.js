@@ -1,5 +1,7 @@
 import {Food} from './food'
 import {Snack} from './snack'
+import {Reg} from './reg';
+
 export class SnackGame {
   constructor(el) {
     this.el = el
@@ -27,9 +29,10 @@ export class SnackGame {
     this.ele = []
     this.foodArr = []
 
-    
+    this.reg = new Reg()
+    this.on = this.reg.register
     this.food = new Food()
-    this.snack = new Snack(this.is)
+    this.snack = new Snack(this)
     this.ele.push(this.food)
     this.ele.push(this.snack)
   }
@@ -43,18 +46,7 @@ export class SnackGame {
     })
 
   }
-  draw() {
-    let mapHtml = ''
-    this.ele.forEach((obj) => {
-      if (obj && typeof obj === 'object') {
-        obj.draw()
-        mapHtml += obj.html
-      }
-    })
-    // 一次写入所有html
-    this.mapDom.innerHTML = mapHtml
-  }
-
+ 
 
   loop() {
     if(this.loopId ) {
@@ -66,7 +58,6 @@ export class SnackGame {
         return false
       }
       this.update()
-      this.draw()
     }, this.config.speed);
   }
 

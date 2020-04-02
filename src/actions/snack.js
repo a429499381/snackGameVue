@@ -1,12 +1,13 @@
 import {Between, log} from '../actions/main'
 import {collide} from '../actions/check/collide.js'
-
-
 export class Snack {
-  constructor(is) {
+  constructor(game) {
     // this.reg = new On()
-    this.on = new On()
-    this.is = is
+    // this.on = new On()
+    this.game = game
+    this.is = game.is
+    this.on = game.on
+    this.foodArr = game.foodArr
     this.setup()
     this.addSnack(4)
     this.reg()
@@ -22,9 +23,7 @@ export class Snack {
     }
     this.autoMoveNum = 0
     this.autoMoveSpeed = 1
-    // this.is = this.map.is
-
-    // this.on = this.reg.register
+ 
   }
 
   update() {
@@ -44,7 +43,7 @@ export class Snack {
       // log('mapDom is', this.map.is)
       // log('吃到自己啦')
     }
-    this.collideArr(this.snackArr[this.snackArr.length - 1], this.map.foodArr)
+    this.collideArr(this.snackArr[this.snackArr.length - 1], this.foodArr)
     if (this.is.isSnackFood) {
       this.is.isSnackFood = false
       // 食物数量减少    
@@ -145,7 +144,7 @@ export class Snack {
     let off = dir.off
     this.on('Space', () => {
       this.autoMoveSpeed += 1
-      // log('speed', this.autoMoveSpeed)
+      log('speed', this.autoMoveSpeed)
     })
     this.on('ArrowLeft', () => {
       if (off.x === -1) {
