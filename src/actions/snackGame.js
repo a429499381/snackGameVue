@@ -29,7 +29,7 @@ export class SnackGame {
 
     
     this.food = new Food()
-    this.snack = new Snack()
+    this.snack = new Snack(this.is)
     this.ele.push(this.food)
     this.ele.push(this.snack)
   }

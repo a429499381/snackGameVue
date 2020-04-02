@@ -1,13 +1,15 @@
 import {Between, log} from '../actions/main'
 import {collide} from '../actions/check/collide.js'
-// import {log} from './main'
-// import {On} from './event/on'
+
 
 export class Snack {
-  constructor() {
+  constructor(is) {
+    // this.reg = new On()
+    this.on = new On()
+    this.is = is
     this.setup()
     this.addSnack(4)
-    // this.reg()
+    this.reg()
   }
   setup() {
     this.snackArr = []
@@ -22,7 +24,6 @@ export class Snack {
     this.autoMoveSpeed = 1
     // this.is = this.map.is
 
-    // this.reg = new On()
     // this.on = this.reg.register
   }
 
@@ -31,11 +32,11 @@ export class Snack {
     if (this.is.isMove) {
       this.is.isMove = false
       this.move()
-      this.isSelf()
+      // this.isSelf()
     } else {
       // log('autoMove')
       this.autoMove()
-      this.isSelf()
+      // this.isSelf()
     }
     if (this.is.isSnackSelf) {
       this.is.isSnackSelf = false
@@ -135,6 +136,7 @@ export class Snack {
   }
 
   reg() {
+    log('reg')
     //                 ArrowUp
     // 2on.js:17 keyup ArrowDown
     // 2on.js:17 keyup ArrowLeft

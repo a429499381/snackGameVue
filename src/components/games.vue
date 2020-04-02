@@ -18,6 +18,7 @@
 // import {__main} from '../actions/main.js';
 import { SnackGame } from "../actions/snackGame";
 // import {Game} from '../actions/cs';
+import {On} from  '../actions/event/on.js'
 export default {
   name: "games",
   props: {
