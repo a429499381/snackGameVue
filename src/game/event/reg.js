@@ -1,4 +1,4 @@
-class On {
+export class Reg {
     constructor() {
         this.actions = {}
         this.keydowns = {}

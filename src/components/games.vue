@@ -1,5 +1,5 @@
 <template>
-  <div id="body" >
+  <div id="body">
     <div id="snack" v-for="(obj, index) in snackArr" :key="'00' + index">
       <div
         :num="index"
@@ -8,21 +8,23 @@
       >{{index}}</div>
     </div>
     <div id="foodArr" v-for="(obj, index) in foodArr" :key="'01' +index">
-      <div class="food" :num='index' v-bind:style="{left: obj.x * num + 'px', top: obj.y * num + 'px'}">{{index}}</div>
+      <div
+        class="food"
+        :num="index"
+        v-bind:style="{left: obj.x * num + 'px', top: obj.y * num + 'px'}"
+      >{{index}}</div>
     </div>
-    <!-- <div>{{game.food}}</div> -->
-    <div >{{gameHeight}}</div>
-    <div >{{gameH}}gameH</div>
+
   </div>
 </template>
 
 <script>
-import { SnackGame } from "../actions/snackGame";
+import { SnackGame } from "../game/snackGame";
 export default {
   name: "games",
   props: {
     msg: String,
-    gameHeight: Number,
+    gameHeight: Number
   },
 
   data() {
@@ -30,22 +32,22 @@ export default {
       gameH: this.gameHeight,
       snackArr: [1],
       foodArr: [],
-      num: 20,
+      num: 20
     };
   },
   updated() {
-    this.gameH = this.gameHeight
+    this.gameH = this.gameHeight;
+   
   },
   mounted: function() {
-    // let  el = this.$el
-    this.game = new SnackGame("xutao");
+     this.game = new SnackGame(this.gameH);
     this.foodArr = this.game.food.foodArr;
     this.snackArr = this.game.snack.snackArr;
 
-    console.log("this.game this.gameHeight", this.gameHeight);
-    console.log("this.game this.gameHeight", this.gameH);
-    console.log("this.game $ref", this);
-    console.log("this.game", this.game);
+    // console.log("this.game this.gameHeight", this.gameHeight);
+    // console.log("this.game this.gameHeight", this.gameH);
+    // console.log("this.game $ref", this);
+    // console.log("this.game", this.game);
   }
 };
 </script>

@@ -1,4 +1,5 @@
-class Food {
+import {Between} from './gx'
+export class Food {
   constructor(map, num = 5) {
     this.setup(map, num)
     this.add(num)

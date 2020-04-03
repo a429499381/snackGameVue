@@ -1,13 +1,13 @@
-class Snack {
+import {Between, log} from './gx'
+import {collide} from './check/collide'
+import {Reg} from './event/reg'
+export class Snack {
   constructor(map, num = 4) {
     this.setup(map)
     this.addSnack(num)
     this.reg()
   }
   setup(map) {
-    var onEvent = new On()
-    this.on = onEvent.register
-    this.off = onEvent.RemoveRegister
     this.map = map
     this.map.ele.push(this)
     this.snackArr = []
@@ -21,6 +21,9 @@ class Snack {
     this.autoMoveNum = 0
     this.autoMoveSpeed = 1
     this.is = this.map.is
+    
+     this.regOn = new Reg()
+     this.on = this.regOn.register
   }
 
   update() {
@@ -230,7 +233,7 @@ class Snack {
 
   sortArr(index) {
     let food = this.map.foodArr
-    let name = ''
+    // let name = ''
 
     for (let i = index; i < food.length - 1; i++) {
       food[i] = food[i + 1]
@@ -239,7 +242,7 @@ class Snack {
     food.index = -5
   }
 
-  addBody(num = 1) {
+  addBody() {
     let body = Object.assign({}, this.snackArr[0])
     body.num -= 1
     body.name = `snack${body.num}`

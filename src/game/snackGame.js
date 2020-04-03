@@ -1,9 +1,19 @@
 
-class SnackGame {
+import {Snack} from '../game/snack'
+import {Food} from '../game/food'
+export class SnackGame {
   constructor(dom = 'bigBorder') {
-    this.mapDom = document.getElementById(dom);
+    this.domInit(dom)
     this.setup()
     this.loop()
+  }
+  domInit(dom) {
+    if (typeof dom === 'string') {
+      let mapDom = document.getElementById(dom);
+      this.mapDom = mapDom.clientWidth;
+    } else {
+      this.mapDom = dom
+    }
   }
   setup() {
     this.is = {
@@ -17,16 +27,16 @@ class SnackGame {
     }
     // this.keyOn = new KeyOn()
     this.config = {
-      w: this.mapDom.clientWidth || 400,
-      h: this.mapDom.clientHeight || 400,
-      speed: 1000/10, //
+      w: this.mapDom || 400,
+      h: this.mapDom || 400,
+      speed: 1000 / 10, //
       speedPuaue: 30000, // 暂停的循环速度
       loopId: -5,
     }
     this.ele = []
     this.foodArr = []
 
-    
+
     this.food = new Food(this)
     this.snack = new Snack(this)
   }
@@ -35,7 +45,7 @@ class SnackGame {
 
     this.ele.forEach((obj) => {
       if (obj && typeof obj === 'object') {
-        obj.update()  
+        obj.update()
       }
     })
 
@@ -54,16 +64,16 @@ class SnackGame {
 
 
   loop() {
-    if(this.loopId ) {
+    if (this.loopId) {
       return false
     }
-  this.loopId = setInterval(() => {
-      if(this.isPause){
+    this.loopId = setInterval(() => {
+      if (this.isPause) {
         this.config.speed = this.config.speedPuaue // 毫秒 30秒
         return false
       }
       this.update()
-      this.draw()
+      // this.draw()
     }, this.config.speed);
   }
 
