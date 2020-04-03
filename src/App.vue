@@ -20,7 +20,6 @@ export default {
   },
   mounted() {
     this.el = this.$el.clientHeight
-    // console.log('el', this.el.clientHeight)
   },
 }
 </script>
